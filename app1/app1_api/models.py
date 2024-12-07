@@ -7,8 +7,8 @@ class User(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
 
 class BankAccount(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -18,8 +18,8 @@ class BankAccount(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     bank_name = models.CharField(max_length=100)
     
-def __str__(self):
-    return f"Account {self.account_number} - {self.bankname}"
+    def __str__(self):
+        return f"Account {self.account_number} - {self.bankname}"
 
 class Transaction(models.Model):
     account = models.ForeignKey(BankAccount, on_delete=models.CASCADE)
